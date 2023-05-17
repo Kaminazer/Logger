@@ -1,15 +1,22 @@
 <?php
+namespace vehicle;
 class Bike extends vehicle implements movableInterface
 {
-    const START_SPEED = 0;
     public function __construct(int $maxSpeed)
     {
-        if ($maxSpeed > self::START_SPEED )
+        if ($maxSpeed <= self::START_SPEED )
         {
-            $this->maxSpeed = $maxSpeed;
+            throw new \Exception(
+            "It is not possible to create an object of the bike class with a negative or zero maximum speed."
+            );
         }
-        $this->maxSpeed = 150;
+        $this->maxSpeed = $maxSpeed;
         $this->speed = self::START_SPEED;
+        self::$amount++;
+    }
+    static function showCount ()
+    {
+        return "The number of objects of class Bike: ".self::$amount;
     }
     public function start()
     {

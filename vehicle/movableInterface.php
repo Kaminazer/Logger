@@ -1,6 +1,6 @@
 <?php
-
-interface movableInterface
+ namespace vehicle;
+ interface movableInterface
 {
     public function start();
     public function stop();
