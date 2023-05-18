@@ -1,0 +1,16 @@
+{
+    "name": "nazar/composer-project",
+    "description": "My first composer project",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Nazarii Korol",
+            "email": "nazarkorol3684@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "guzzlehttp/guzzle": "7.6.x-dev"
+    }
+}
