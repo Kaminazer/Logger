@@ -1,11 +1,19 @@
 <?php
-require_once 'movableInterface.php';
+/*require_once 'movableInterface.php';
 require_once 'Vehicle.php';
 require_once 'Car.php';
-require_once 'Bike.php';
-
-use vehicle\Car;
-use vehicle\Bike;
+require_once 'Bike.php';*/
+require_once __DIR__."/../autoload.php";
+spl_autoload_register(
+    [
+        "Autoload\Autoload",
+        "loading"
+    ]
+);
+use itea\vehicle\Car;
+use itea\vehicle\Bike;
+use itea\vehicle\sportCars\Ferrari;
+use itea\vehicle\sportCars\company\Lamborgini;
 
 echo Car::showCount().PHP_EOL;
 
@@ -29,5 +37,12 @@ echo $bike->down(100).PHP_EOL;
 echo $bike->up(160).PHP_EOL;
 echo $bike->stop().PHP_EOL;
 echo PHP_EOL;
+
+$ferrari = new Ferrari();
+$ferrari->showModel();
+echo PHP_EOL;
+$ferrari = new Lamborgini();
+$ferrari->showModel();
+
 
 

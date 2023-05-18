@@ -1,6 +1,6 @@
 <?php
-namespace vehicle;
-class Bike extends vehicle implements movableInterface
+namespace itea\vehicle;
+class Bike extends Vehicles implements movableInterface
 {
     public function __construct(int $maxSpeed)
     {

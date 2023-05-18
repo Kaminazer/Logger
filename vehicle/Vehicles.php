@@ -1,6 +1,6 @@
 <?php
-namespace vehicle;
-abstract class vehicle
+namespace itea\vehicle;
+abstract class Vehicles
 {
     protected int $speed;
     protected int $maxSpeed;

@@ -1,5 +1,5 @@
 <?php
- namespace vehicle;
+ namespace itea\vehicle;
  interface movableInterface
 {
     public function start();
