@@ -1,18 +1,21 @@
 <?php
 namespace itea\vehicle;
-class Car extends Vehicles implements movableInterface
+class Car extends Vehicles implements MovableInterface
 {
-    public function __construct(int $maxSpeed)
+    private $engine;
+    private $gps;
+    public function __construct(int $maxSpeed, Gps $gps)
     {
-        if ($maxSpeed <= self::START_SPEED )
-        {
+        if ($maxSpeed <= self::START_SPEED ) {
             throw new \Exception(
-            "It is not possible to create an object of the car class with a negative or zero maximum speed."
+                "It is not possible to create an object of the car class with a negative or zero maximum speed."
             );
         }
         $this->maxSpeed = $maxSpeed;
         $this->speed = self::START_SPEED;
         self::$amount++;
+        $this->engine = new Engine();
+        $this->gps = $gps;
     }
     static function showCount ()
     {
@@ -20,7 +23,10 @@ class Car extends Vehicles implements movableInterface
     }
     public function start()
     {
-        return "Start engine";
+        return [
+            $this->engine->start(),
+            $this->gps->routeBuilding("Kiev", "Odessa")
+            ];
     }
 
     public function stop()
